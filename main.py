@@ -1,14 +1,9 @@
 from fastapi import FastAPI
-from fastapi.openapi.models import APIBase
 from app.PlayTimeGenre import app as PlayTimeGenre
 from app.sentiment_analysis import app as SentimentAnalysis
 from app.UserForGenre import app as UserForGenre
 from app.UsersNotRecommend import app as UsersNotRecommend
 from app.UsersRecommend import app as UsersRecommend
-from fastapi.openapi.models import APIBase
-from fastapi.openapi.models import APIBase
-from fastapi.openapi.models import APIBase
-from fastapi.openapi.models import APIBase
 
 app = FastAPI()
 
