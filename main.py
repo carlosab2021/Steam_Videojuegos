@@ -8,11 +8,11 @@ from app.UsersRecommend import app as UsersRecommend
 app = FastAPI()
 
 # Monta las subaplicaciones FastAPI en sus rutas respectivas
-main_app.mount("/PlayTimeGenre", PlayTimeGenre)
-main_app.mount("/sentiment_analysis", SentimentAnalysis)
-main_app.mount("/UserForGenre", UserForGenre)
-main_app.mount("/UsersNotRecommend", UsersNotRecommend)
-main_app.mount("/UsersRecommend", UsersRecommend)
+app.mount("/PlayTimeGenre", PlayTimeGenre)
+app.mount("/sentiment_analysis", SentimentAnalysis)
+app.mount("/UserForGenre", UserForGenre)
+app.mount("/UsersNotRecommend", UsersNotRecommend)
+app.mount("/UsersRecommend", UsersRecommend)
 
 if __name__ == "__main__":
     import uvicorn
