@@ -1,22 +1,22 @@
 from fastapi import FastAPI
-from starlette.middleware.wsgi import WSGIMiddleware
 from app.PlayTimeGenre import app as PlayTimeGenre
-from app.sentiment_analysis import app as sentiment_analysis
+from app.sentiment_analysis import app as SentimentAnalysis
 from app.UserForGenre import app as UserForGenre
 from app.UsersNotRecommend import app as UsersNotRecommend
 from app.UsersRecommend import app as UsersRecommend
 
 main_app = FastAPI()
 
-# Monta la aplicación Flask
-main_app.mount("/PlayTimeGenre", WSGIMiddleware(PlayTimeGenre))
-main_app.mount("/sentiment_analysis", WSGIMiddleware (sentiment_analysis))
-main_app.mount("/UserForGenre", WSGIMiddleware (UserForGenre))
-main_app.mount("/UsersNotRecommend", WSGIMiddleware (UsersNotRecommend))
-main_app.mount("/UsersRecommend", WSGIMiddleware (UsersRecommend))
+# Monta las subaplicaciones FastAPI en sus rutas respectivas
+main_app.mount("/PlayTimeGenre", PlayTimeGenre)
+main_app.mount("/sentiment_analysis", SentimentAnalysis)
+main_app.mount("/UserForGenre", UserForGenre)
+main_app.mount("/UsersNotRecommend", UsersNotRecommend)
+main_app.mount("/UsersRecommend", UsersRecommend)
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(main_app, host="0.0.0.0", port=10000)
+
 
 
