@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.openapi.utils import get_openapi  # Agrega esta línea para importar get_openapi
 from app.PlayTimeGenre import app as PlayTimeGenre
 from app.sentiment_analysis import app as SentimentAnalysis
 from app.UserForGenre import app as UserForGenre
@@ -32,4 +33,5 @@ app.openapi = custom_openapi
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=10000)
+
 
